@@ -37,7 +37,8 @@ def style_transfer(vgg, decoder, content, style, alpha=1.0,
     else:
         feat = adaptive_instance_normalization(content_f, style_f)
     feat = feat * alpha + content_f * (1 - alpha)
-    return decoder(feat)
+    return decoder(feat)  # note this always returns shape (C,W,H) even if it accepts (N,C,W,H) for interpolation or
+    # (C,W,H) for one style
 
 
 parser = argparse.ArgumentParser()
@@ -149,8 +150,8 @@ for content_path in content_paths:
             style = style_tf(Image.open(str(style_path)))
             if args.preserve_color:
                 style = coral(style, content)
-            style = style.to(device).unsqueeze(0)
-            content = content.to(device).unsqueeze(0)
+            style = style.to(device).unsqueeze(0)  # adds batch dimension
+            content = content.to(device).unsqueeze(0)  # adds batch dimension
             with torch.no_grad():
                 output = style_transfer(vgg, decoder, content, style,
                                         args.alpha)
