@@ -28,7 +28,7 @@ args="${args} --log_dir ${LOG_DIR}"
 export PYTHONUNBUFFERED="True"
 
 PY_EXE=/home/maverkiou/miniconda2/envs/adain/bin/python
-SOURCE_DIR=/home/maverkiou/zavou/pytorch_AdaIn
+SOURCE_DIR=/home/maverkiou/zavou/pytorch-AdaIN
 
 VERSION=$(git rev-parse HEAD)
 
@@ -36,6 +36,7 @@ TIME=$(date +"%Y-%m-%d_%H-%M-%S")
 LOG="$LOG_DIR/$TIME.txt"
 
 mkdir -p $LOG_DIR
+mkdir -p $SAVE_DIR
 
 echo Logging output to "$LOG"
 echo "Version: ${VERSION}" > "$LOG"
