@@ -55,6 +55,18 @@ For more details and parameters, please refer to --help option.
 
 I share the model trained by this code [here](https://drive.google.com/file/d/1YIBRdgGBoVllLhmz_N7PwfeP5V9Vz2Nr/view?usp=sharing)
 
+
+### Download training / test data:
+```
+mkdir data && cd data/
+mkdir coco2017 && cd coco2017
+wget http://images.cocodataset.org/zips/test2017.zip
+wget http://images.cocodataset.org/zips/train2017.zip
+cd ..
+mkdir wikiart
+download from kaggle...https://www.kaggle.com/c/painter-by-numbers/data
+```
+
 ## References
 - [1]: X. Huang and S. Belongie. "Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization.", in ICCV, 2017.
 - [2]: [Original implementation in Torch](https://github.com/xunhuang1995/AdaIN-style)
